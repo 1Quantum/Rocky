@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace Rocky.Utility
+namespace Rocky_Utility
 {
    public static class SessionExtensions
    {
