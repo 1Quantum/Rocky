@@ -8,22 +8,21 @@ using System.Threading.Tasks;
 
 namespace Rocky_DataAccess.Repository
 {
-    public class CategoryRepository : Repository<Category>, ICategoryRepository
+    public class ApplicationTypeRepository : Repository<ApplicationType>, IApplicationTypeRepository
     {
         private readonly ApplicationDbContext _db;
 
-        public CategoryRepository(ApplicationDbContext db) : base(db)
+        public ApplicationTypeRepository(ApplicationDbContext db) : base(db)
         {
             _db = db;
         }
 
-        public void Update(Category obj)
+        public void Update(ApplicationType obj)
         {
             var objFromDb = base.FirstOrDefault(x => x.Id == obj.Id);
             if (objFromDb != null)
             {
                 objFromDb.Name = obj.Name;
-                objFromDb.DisplayOrder = obj.DisplayOrder;
             }
         }
     }

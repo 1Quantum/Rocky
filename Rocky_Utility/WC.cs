@@ -15,5 +15,7 @@ namespace Rocky_Utility
 
         public const string EmailAdmin = "dastan.nasirdinov@alatoo.edu.kg";
 
+        public const string CategoryName = "Category";
+        public const string ApplicationTypeName = "ApplicationType";
     }
 }

@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Rocky_DataAccess.Repository.IRepository
 {
-    public interface ICategoryRepository : IRepository<Category>
+    public interface IApplicationTypeRepository : IRepository<ApplicationType>
     {
-        void Update(Category obj);
+        void Update(ApplicationType obj);
     }
 }
