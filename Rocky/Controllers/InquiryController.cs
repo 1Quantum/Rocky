@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Rocky.Controllers
 {
-    [Authorize(WC.AdminRole)]
+    [Authorize(Roles = WC.AdminRole)]
     public class InquiryController : Controller
     {
         private readonly IInquiryHeaderRepository _inqHRepo;
@@ -62,6 +62,8 @@ namespace Rocky.Controllers
             HttpContext.Session.Clear();
             HttpContext.Session.Set(WC.SessionCart, shoppingCartList);
             HttpContext.Session.Set(WC.SessionInquiryId, InquiryVM.InquiryHeader.Id);
+            TempData[WC.Success] = "Converted to cart successfully!";
+
             return RedirectToAction("Index", "Cart");
         }
 
@@ -74,6 +76,7 @@ namespace Rocky.Controllers
             _inqDRepo.RemoveRange(inquiryDetails);
             _inqHRepo.Remove(inquiryHeader);
             _inqHRepo.Save();
+            TempData[WC.Success] = "Inquiry removed successfully!";
 
             return RedirectToAction(nameof(Index));
         }

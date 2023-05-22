@@ -107,6 +107,7 @@ namespace Rocky.Controllers
                     //productVM.Product.Category = _db.Category.Find(productVM.Product.CategoryId); TODO: _db change to _prodRepo
 
                     _prodRepo.Add(productVM.Product);
+                    TempData[WC.Success] = "Product created successfully!";
                 }
                 else
                 {
@@ -138,9 +139,11 @@ namespace Rocky.Controllers
                         productVM.Product.Image = objFromDb.Image;
                     }
                     _prodRepo.Update(productVM.Product);
+                    TempData[WC.Success] = "Product updated successfully!";
                 }
 
                 _prodRepo.Save();
+                
                 return RedirectToAction("Index");
             }
 
@@ -189,6 +192,7 @@ namespace Rocky.Controllers
 
             _prodRepo.Remove(obj);
             _prodRepo.Save();
+            TempData[WC.Success] = "Product removed successfully!";
             return RedirectToAction("Index");
         }
     }
