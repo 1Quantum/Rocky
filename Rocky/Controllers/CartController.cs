@@ -112,7 +112,7 @@ namespace Rocky.Controllers
                     applicationUser = new ApplicationUser();
                 }
 
-                var gateaway = _brain.GetGateaway();
+                var gateaway = _brain.GetGateaway(); 
                 var clientToken = gateaway.ClientToken.Generate();
                 ViewBag.ClientToken = clientToken;
             }
